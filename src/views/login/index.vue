@@ -1,9 +1,29 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    <div class="login-bg">
+      <vue-particles
+        color="#eee"
+        :particle-opacity="0.7"
+        :particles-number="60"
+        shape-type="circle"
+        :particle-size="3"
+        lines-color="#eee"
+        :lines-width="1"
+        :line-linked="true"
+        :line-opacity="0.4"
+        :lines-distance="150"
+        :move-speed="1"
+        :hover-effect="true"
+        hover-mode="grab"
+        :click-effect="true"
+        click-mode="push"
+        class="lizi"
+      />
+    </div>
 
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">药库管理系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -20,7 +40,6 @@
           auto-complete="on"
         />
       </el-form-item>
-
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon-class="password" />
@@ -40,14 +59,7 @@
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
-
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
-      </div>
-
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;opacity:1" @click.native.prevent="handleLogin">登 录</el-button>
     </el-form>
   </div>
 </template>
@@ -131,13 +143,6 @@ export default {
 
 $bg:#283443;
 $light_gray:#fff;
-$cursor: #fff;
-
-@supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-  .login-container .el-input input {
-    color: $cursor;
-  }
-}
 
 /* reset element-ui css */
 .login-container {
@@ -152,21 +157,15 @@ $cursor: #fff;
       -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      color: #000;
       height: 47px;
-      caret-color: $cursor;
-
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
-      }
     }
   }
 
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 4px;
     color: #454545;
   }
 }
@@ -178,30 +177,30 @@ $dark_gray:#889aa4;
 $light_gray:#eee;
 
 .login-container {
-  min-height: 100%;
+  overflow: hidden;
+  height: 100%;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+  .login-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-image: url('../../assets/login-bg.jpg');
+  }
 
   .login-form {
     position: relative;
     width: 520px;
+    top: 240px;
     max-width: 100%;
-    padding: 160px 35px 0;
+    padding: 24px 24px 0;
     margin: 0 auto;
     overflow: hidden;
-  }
-
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
+    background: #fff;
+    opacity: 0.8;
   }
 
   .svg-container {
@@ -217,7 +216,7 @@ $light_gray:#eee;
 
     .title {
       font-size: 26px;
-      color: $light_gray;
+      color: #555;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
