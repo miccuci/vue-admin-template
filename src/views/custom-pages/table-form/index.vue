@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:10px">
+  <div class="app-container">
     <div>
       <el-button type="primary" size="medium" @click="handleCreate">新增题库</el-button>
       <span style="float:right;">
@@ -8,8 +8,8 @@
           size="medium"
           style="width: 200px;"
           placeholder="题库名称"
-          @keyup.enter.native="handleQuery" 
-/>
+          @keyup.enter.native="handleQuery"
+        />
         <el-button type="primary" size="medium" @click="fetchData">查询</el-button>
       </span>
     </div>
@@ -20,17 +20,17 @@
       fit
       highlight-current-row
       style="margin-top: 16px;"
-      height="calc(100vh - 176px)"
->
+    >
       <el-table-column
         label="题库"
         prop="catgName"
         width="200"
-/>
+      />
       <el-table-column
         label="题库分类"
         prop="catgClass"
-        width="200">
+        width="200"
+      >
         <template slot-scope="scope">
           {{ scope.row.catgClass }}
         </template>
@@ -38,12 +38,12 @@
       <el-table-column
         label="题库描述"
         prop="memo"
-/>
+      />
       <el-table-column
         align="center"
         label="操作"
         width="200"
->
+      >
         <template slot-scope="scope">
           <el-button type="default" size="mini" @click="handleUpdate(scope.row)">修改</el-button>
           <el-button type="danger" size="mini" @click="handleDelete(scope.row)">删除</el-button>
@@ -53,8 +53,8 @@
     <question-dialog
       :question-data="questionData"
       :dialog-visible="dialogVisible"
-      :dialog-close="dialogClose" 
-/>
+      :dialog-close="dialogClose"
+    />
   </div>
 </template>
 

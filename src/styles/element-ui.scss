@@ -61,15 +61,18 @@
 }
 
 // table
-.el-table__body {
-  font-size: 12px;
-}
 .el-table th {
   background: rgb(164, 171, 187);
   color: rgb(255, 255, 255);
 }
+.el-table td {
+  padding: 6px 0 !important;
+}
 .el-table__row.el-table__row--striped {
   background: #f3f3f3;
+}
+.el-table .cell{
+  text-align: center;
 }
 
 // card

@@ -5,7 +5,7 @@ import Layout from '@/layout'
 const customPages = {
   path: '/custompages',
   component: Layout,
-  redirect: 'noredirect',
+  redirect: '/custompages/tableform',
   name: 'custompages',
   meta: {
     title: '自定义页面',

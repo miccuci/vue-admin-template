@@ -3,10 +3,10 @@
     <el-dialog :title="isAdd?'新增题库':'编辑题库'" :visible.sync="dialogVisible" :before-close="dialogClose">
       <el-form ref="questionForm" :model="form" :rules="rules">
         <el-form-item :label-width="formLabelWidth" label="题库名称：" prop="catgName">
-          <el-input v-model="form.catgName"/>
+          <el-input v-model="form.catgName" />
         </el-form-item>
         <el-form-item :label-width="formLabelWidth" label="题库编码：" prop="typeCode">
-          <el-input v-model="form.typeCode"/>
+          <el-input v-model="form.typeCode" />
         </el-form-item>
         <el-form-item :label-width="formLabelWidth" label="题库分类：" prop="catgClass">
           <el-select v-model="form.catgClass" style="width:100%" placeholder="请选择题库分类">
@@ -14,11 +14,12 @@
               v-for="item in catgClassList"
               :key="item.dictCode"
               :label="item.dictName"
-              :value="item.dictCode"/>
+              :value="item.dictCode"
+            />
           </el-select>
         </el-form-item>
         <el-form-item :label-width="formLabelWidth" label="说明：" prop="memo">
-          <el-input v-model="form.memo" type="textarea"/>
+          <el-input v-model="form.memo" type="textarea" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">

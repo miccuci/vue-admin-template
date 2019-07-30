@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import customPages from './modules/customPages'
-
+import accountBook from './modules/accountBook'
 Vue.use(Router)
 
 /* Layout */
@@ -70,5 +70,6 @@ export default router
 export const asyncRouterMap = [
   /** When your routing table is too long, you can split it into small modules**/
   customPages,
+  accountBook,
   { path: '*', redirect: '/404', hidden: true }
 ]
