@@ -7,7 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 // import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import VueParticles from 'vue-particles'
 import '@/styles/index.scss' // global css
-
+import * as filters from './filters' // global filters
 import App from './App'
 import store from './store'
 import router from './router'
@@ -32,6 +32,11 @@ Vue.use(VueParticles)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
+
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 new Vue({
   el: '#app',

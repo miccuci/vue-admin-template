@@ -23,7 +23,7 @@
 
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">药库管理系统</h3>
+        <h3 class="title">药房管理系统</h3>
       </div>
 
       <el-form-item prop="username">
@@ -72,14 +72,7 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
-      } else {
-        callback()
-      }
-    }
-    const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error('用户名错误，请重试'))
       } else {
         callback()
       }
@@ -91,7 +84,7 @@ export default {
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        password: [{ required: true, trigger: 'blur' }]
       },
       loading: false,
       passwordType: 'password',
@@ -150,7 +143,6 @@ $light_gray:#fff;
     display: inline-block;
     height: 47px;
     width: 85%;
-
     input {
       background: transparent;
       border: 0px;
@@ -159,6 +151,13 @@ $light_gray:#fff;
       padding: 12px 5px 12px 15px;
       color: #000;
       height: 47px;
+    }
+    input:-webkit-autofill { // 覆盖 自动填入密码时背景色
+      -webkit-box-shadow: 0 0 0px 1000px  #e5e5e5 inset !important;
+      -webkit-text-fill-color: #000622 !important;
+    }
+    input::-webkit-input-placeholder{
+      color: rgba(0,6,34,0.4);
     }
   }
 
@@ -200,7 +199,6 @@ $light_gray:#eee;
     margin: 0 auto;
     overflow: hidden;
     background: #fff;
-    opacity: 0.8;
   }
 
   .svg-container {

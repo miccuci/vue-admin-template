@@ -42,3 +42,60 @@
     display: block
   }
 }
+
+
+
+// select
+.el-select-dropdown__item.selected {
+  background: rgba(255, 255, 255, 0.9);
+}
+.el-select-dropdown__item {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+  height: 32px;
+  line-height: 32px;
+}
+.el-select .el-input__inner {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+// table
+.el-table__body {
+  font-size: 12px;
+}
+.el-table th {
+  background: rgb(164, 171, 187);
+  color: rgb(255, 255, 255);
+}
+.el-table__row.el-table__row--striped {
+  background: #f3f3f3;
+}
+
+// card
+
+.el-card.is-always-shadow {
+  box-shadow: none;
+  border: none;
+}
+.el-card__body {
+  padding: 16px;
+}
+.el-card__header {
+
+  position: relative;
+  border-bottom: none 0;
+}
+.el-card {
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #4a4a4a;
+  letter-spacing: 0;
+}
+// 弹出层
+.el-dialog__header {
+  background: rgba(90, 123, 239, 0.12);
+}
+.el-dialog__headerbtn {
+  font-size: 18px;
+}
