@@ -3,6 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+@import './custom-scrollbar.scss';
 
 body {
   height: 100%;
@@ -64,7 +65,8 @@ div:focus {
   margin: 8px;
   background-color: #fff;
   padding: 8px;
-  min-height: calc(100vh - 108px)
+  overflow: auto;
+  height: calc(100vh - 68px)
 }
 // 标题样式，左侧有蓝色框
 .title-wrap{

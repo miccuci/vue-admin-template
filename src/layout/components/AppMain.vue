@@ -3,7 +3,7 @@
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
-    <div class="footer-container">Copyright ©️ 2018 卫宁健康 版权所有</div>
+    <!-- <div class="footer-container">Copyright ©️ 2018 卫宁健康 版权所有</div> -->
   </section>
 </template>
 

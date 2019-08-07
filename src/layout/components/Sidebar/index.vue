@@ -15,6 +15,9 @@
         <sidebar-item v-for="(route,index) in permission_routers" :key="index" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
+    <div v-if="!isCollapse" class="footer-container">
+      Copyright ©️ 2018 卫宁健康
+    </div>
   </div>
 </template>
 
@@ -49,3 +52,14 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.footer-container{
+  text-align: center;
+  width: 100%;
+  line-height: 24px;
+  color: rgb(191, 203, 217);
+  font-size: 12px;
+  position: absolute;
+  bottom:0px;
+}
+</style>
