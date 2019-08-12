@@ -27,6 +27,7 @@ import { mockXHR } from '../mock'
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
+
 Vue.use(VueParticles)
 // set ElementUI lang to EN
 Vue.use(ElementUI)

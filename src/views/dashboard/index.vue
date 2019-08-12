@@ -1,82 +1,54 @@
 <template>
   <div class="app-container">
-    <div class="dashboard-text">name: {{ name }}</div>
-    <el-form ref="ruleForm" :model="ruleForm" status-icon :rules="rules" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="密码" prop="pass">
-        <el-input v-model="ruleForm.pass" type="password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="年龄" prop="age">
-        <el-input v-model.number="ruleForm.age" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+    <div style="height:400px;">name: {{ name }}</div>
+    <custom-select :options="options" :default-value="selectVal" @query="onQuery" @change="onSelect">
+      <template v-slot="slotProps">
+        <span>{{ slotProps.option.label }}</span>
+        <span style="margin-left:8px;float:right;font-size:13px;">{{ slotProps.option.value }}</span>
+      </template>
+    </custom-select>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
+import CustomSelect from '@/components/CustomSelect'
 export default {
   name: 'Dashboard',
+  components: {
+    CustomSelect
+  },
   data() {
-    var checkAge = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error('年龄不能为空'))
-      }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error('请输入数字值'))
-        } else {
-          if (value < 18) {
-            callback(new Error('必须年满18岁'))
-          } else {
-            callback()
-          }
-        }
-      }, 1000)
-    }
-    var validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'))
-      } else {
-        if (this.ruleForm.checkPass !== '') {
-          this.$refs.ruleForm.validateField('checkPass')
-        }
-        callback()
-      }
-    }
-    var validatePass2 = (rule, value, callback, arg) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'))
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error('两次输入密码不一致!'))
-      } else {
-        callback()
-      }
-    }
     return {
-      ruleForm: {
-        pass: '',
-        checkPass: '',
-        age: ''
-      },
-      rules: {
-        pass: [
-          { validator: validatePass, trigger: 'blur' }
-        ],
-        checkPass: [
-          { validator: (rule, value, callback) => validatePass2(rule, value, callback, 11), trigger: 'blur' }
-        ],
-        age: [
-          { validator: checkAge, trigger: 'blur' }
-        ]
-      }
+      selectVal: '选项1',
+      options: [{
+        value: '选项1',
+        label: '黄金糕'
+      }, {
+        value: '选项2',
+        label: '双皮奶'
+      }, {
+        value: '选项3',
+        label: '蚵仔煎'
+      }, {
+        value: '选项4',
+        label: '龙须面'
+      }, {
+        value: '选项5',
+        label: '北京烤鸭'
+      }, {
+        value: '选项6',
+        label: '蚵仔煎1'
+      }, {
+        value: '选项7',
+        label: '龙须面1'
+      }, {
+        value: '选项8',
+        label: '北京烤鸭1'
+      }, {
+        value: '选项9',
+        label: '蚵仔煎2'
+      }]
     }
   },
   computed: {
@@ -85,22 +57,12 @@ export default {
     ])
   },
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+    onSelect(val) {
+      console.log('object', val)
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields()
+    onQuery(params) {
+      this.options = this.options.slice(0, 4)
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
