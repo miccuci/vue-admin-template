@@ -59,7 +59,7 @@ export default {
         keyword: '',
         pageNo: 1,
         pageSize: 10,
-        total: 20
+        total: 0
       },
       value: '',
       align: 'bottom',
@@ -72,6 +72,12 @@ export default {
       handler(val) {
         this.value = val
         this.onSelect({ value: val })
+      }
+    },
+    options: {
+      immediate: true,
+      handler(val) {
+        this.queryParams.total = val && val.length
       }
     }
   },
