@@ -29,6 +29,11 @@ const customPages = {
       component: () => import('@/views/custom-pages/tree/index'),
       meta: { title: 'Tree', icon: 'tree' }
     }, {
+      path: 'test',
+      name: 'Test',
+      component: () => import('@/views/test/index'),
+      meta: { title: 'test', icon: 'tree' }
+    }, {
       path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
       meta: { title: 'External Link', icon: 'link' }
     }

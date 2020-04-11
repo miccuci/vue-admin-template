@@ -1,12 +1,12 @@
 <template>
   <div class="app-container">
     <div>
-      <el-button type="primary" size="medium" @click="handleCreate">新增题库</el-button>
+      <el-button type="default" size="medium" @click="handleCreate">新增题库</el-button>
       <span style="float:right;">
         <el-input
           v-model.trim="listQuery.catgName"
           size="medium"
-          style="width: 200px;"
+          class="width"
           placeholder="题库名称"
           @keyup.enter.native="handleQuery"
         />
@@ -32,7 +32,7 @@
         width="200"
       >
         <template slot-scope="scope">
-          {{ scope.row.catgClass }}
+          {{ scope.row.catgClass+'111' }}
         </template>
       </el-table-column>
       <el-table-column
@@ -139,3 +139,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+ .width{
+   width: 200px;
+   border: 1px solid red;
+ }
+</style>
+<style lang="scss" scoped>
+
+</style>
