@@ -113,13 +113,15 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
+          debugger
+          this.$router.push({ path: this.redirect || '/' })
+          /* this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
             this.loading = false
-          })
+          }) */
         } else {
           console.log('error submit!!')
           return false

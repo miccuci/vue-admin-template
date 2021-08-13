@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { getSelectList } from '@/api/custom'
 export default {
   props: {
     defaultValue: {
@@ -69,10 +68,6 @@ export default {
   },
   methods: {
     fetchData() {
-      getSelectList(this.queryParams, this.remoteUrl).then(response => {
-        this.list = response.data.items
-        this.queryParams.total = response.data.total
-      })
     },
     remoteMethod(query) {
       this.queryParams.keyword = query
