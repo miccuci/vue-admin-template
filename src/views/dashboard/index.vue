@@ -1,6 +1,5 @@
 <template>
   <div class="app-container">
-    <div style="height:800px;">name: {{ name }}</div>
     <remote-select
       remote-url="/select/list"
       size="small"
@@ -26,7 +25,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 // import CustomSelect from '@/components/CustomSelect'
 import RemoteSelect from '@/components/RemoteSelect'
 export default {
@@ -58,11 +56,6 @@ export default {
       }],
       options: []
     }
-  },
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
   },
   methods: {
     onSelect(val) {
