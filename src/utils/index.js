@@ -108,3 +108,16 @@ export function param2Obj(url) {
       '"}'
   )
 }
+
+export function getPermissionRouters(codeList, routers = []) {
+  for (let i = 0; i < routers.length; i++) {
+    if (routers[i].children && routers[i].children.length) {
+      routers[i].children = getPermissionRouters(codeList, routers[i].children)
+    }
+  }
+  return routers.filter(item => codeList.indexOf(item.meta && item.meta.code) > -1)
+}
+
+export function getResourcePermission(code, resources) {
+  return !resources.every(item => item !== code)
+}
