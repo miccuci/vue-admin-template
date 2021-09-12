@@ -1,7 +1,6 @@
 import { asyncRouterMap, constantRouterMap } from '@/router'
-// import { get, getUrl } from '@/service'
+// import { post } from '@/service'
 // import { getPermissionRouters } from '@/utils'
-
 const permission = {
   state: {
     routers: constantRouterMap,
@@ -16,15 +15,15 @@ const permission = {
     SET_RESOURCE: (state, codes) => {
       state.resourceCodes = codes
     }
-
   },
   actions: {
     GenerateRoutes({ commit }) {
       return new Promise(resolve => {
         commit('SET_ROUTERS', asyncRouterMap)
         resolve()
-        /* const url = getUrl('authCodeList')
-        get(url).then(res => {
+
+        /*
+        post('authCodeList').then(res => {
           if (res && res.length) {
             const codes = res.map(item => item.resourceCode)
             commit('SET_RESOURCE', codes)

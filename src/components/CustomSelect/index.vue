@@ -1,5 +1,5 @@
 <template>
-  <dropdown ref="custom-select" :unscroll="'.app-container'" :align="align" :y="y">
+  <dropdown ref="custom-select" :align="align" :y="y">
     <template slot="btn">
       <el-input v-model="queryParams.keyword" size="small" @keyup.enter.native="handleQuery" />
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div>
     <div>
       <el-button type="primary" size="medium" @click="handleCreate">新增题库</el-button>
       <span style="float:right;">
@@ -50,18 +50,17 @@
         </template>
       </el-table-column>
     </el-table>
-    <question-dialog
-      :question-data="questionData"
+    <detail-dialog
+      :dialog-data="currentData"
       :dialog-visible="dialogVisible"
-      :dialog-close="dialogClose"
     />
   </div>
 </template>
 
 <script>
-import QuestionDialog from './QuestionDialog'
+import DetailDialog from './DetailDialog'
 export default {
-  components: { QuestionDialog },
+  components: { DetailDialog },
   data() {
     return {
       list: [{
@@ -89,18 +88,13 @@ export default {
         catgClass: '简答题型',
         memo: '说明备注'
       }],
-      questionData: {},
+      currentData: {},
       dialogVisible: false,
       wardCode: '',
       listQuery: {
         catgName: ''
       }
     }
-  },
-  computed: {
-  },
-
-  created() {
   },
   methods: {
     fetchData() {
@@ -121,20 +115,12 @@ export default {
     },
     // 初始化修改对话框
     handleUpdate(row) {
-      this.questionData = row
+      this.currentData = row
       this.dialogVisible = true
     },
     handleCreate() {
-      this.questionData = {}
+      this.currentData = {}
       this.dialogVisible = true
-    },
-    dialogClose(questionData, flag) { // flag = 'add'表示新增,'update'表示修改,null表示取消
-      if (flag === 'add') {
-        console.log('add')
-      } else if (flag === 'update') {
-        console.log('update')
-      }
-      this.dialogVisible = false
     }
   }
 }

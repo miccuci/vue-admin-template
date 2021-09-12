@@ -1,16 +1,14 @@
 <template>
   <div class="header-wrapper">
-    <div class="header-container">
-      <div class="sidebar-logo-container">
-        <router-link key="expand" class="sidebar-logo-link" to="/">
-          <h1 class="sidebar-title">{{ $t('message.systemName') }}</h1>
-        </router-link>
-        <sidebar class="sidebar-container" :routes="permission_routers" />
-      </div>
-      <div class="right-menu">
-        <div class="right-menu-item">
-          消息
-        </div>
+    <div class="sidebar-logo-container">
+      <router-link key="expand" class="sidebar-logo-link" to="/">
+        <h1 class="sidebar-title">{{ $t('message.systemName') }}</h1>
+      </router-link>
+      <sidebar class="sidebar-container" :routes="permission_routers" />
+    </div>
+    <div class="right-menu">
+      <div class="right-menu-item">
+        消息
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // progress bar
+import Cookies from 'js-cookie'
+import i18n from './lang'
 import 'nprogress/nprogress.css' // progress bar style
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
@@ -10,6 +12,8 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
 
   const addRouters = store.getters.addRouters
+  const lang = Cookies.get('language') || ''
+  i18n.locale = lang === 'en_US' ? 'en' : 'zh'
   if (addRouters.length) {
     next()
   } else {

@@ -2,11 +2,9 @@
   <div class="app-wrapper">
     <app-header />
     <div class="body-container">
-      <div class="main-container">
-        <app-main />
-      </div>
-      <div class="footer-container">{{ $t('messages.copyright') }}</div>
+      <app-main />
     </div>
+    <div class="footer-container">{{ $t('messages.copyright') }}</div>
   </div>
 </template>
 
@@ -31,7 +29,6 @@ export default {
     margin:64px auto;
   }
   .main-container{
-    width: 1600px;
     margin: 0 auto;
     height: 100%;
     position: relative;
@@ -44,6 +41,7 @@ export default {
     overflow: hidden;
   }
   .footer-container{
+    width: 100%;
     position: fixed;
     bottom: 0;
     line-height: 24px;

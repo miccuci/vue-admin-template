@@ -1,84 +1,82 @@
 <template>
-  <div class="app-container">
-    <div class="account-book">
-      <div class="title-wrap">
-        <span class="title-wrap__prefix" />
-        <span>记账本</span>
-      </div>
-      <div style="margin-bottom:16px">
-        <span>
-          医疗保险：
-          <el-select v-model="queryParams.orgStatus" size="small" style="width:120px;margin-right:8px" clearable filterable @change="onSearch">
-            <el-option label="全部" :value="null" />
-            <el-option label="启用" value="98360" />
-            <el-option label="停用" value="98361" />
-          </el-select>
-          <el-input v-model="queryParams.keyword" placeholder="请输入检索内容..." size="small" style="width:200px" @keyup.enter.native="onSearch" />
-        </span>
-      </div>
+  <div class="account-book">
+    <div class="title-wrap">
+      <span class="title-wrap__prefix" />
+      <span>记账本</span>
+    </div>
+    <div style="margin-bottom:16px">
+      <span>
+        医疗保险：
+        <el-select v-model="queryParams.orgStatus" size="small" style="width:120px;margin-right:8px" clearable filterable @change="onSearch">
+          <el-option label="全部" :value="null" />
+          <el-option label="启用" value="98360" />
+          <el-option label="停用" value="98361" />
+        </el-select>
+        <el-input v-model="queryParams.keyword" placeholder="请输入检索内容..." size="small" style="width:200px" @keyup.enter.native="onSearch" />
+      </span>
+    </div>
 
-      <el-table :data="list" border style="width: 100%" class="account-book">
-        <el-table-column
-          prop="date"
-          width="100"
-          label="日期"
-        />
-        <el-table-column
-          prop="account"
-          width="60"
-          label="记账凭证"
-        />
-        <el-table-column
-          prop="name"
-          min-width="160"
-          label="药品名称"
-        />
-        <el-table-column
-          prop="specification"
-          width="120"
-          label="规格"
-        />
-        <el-table-column
-          prop="unit"
-          width="60"
-          label="计数单位"
-        />
-        <el-table-column
-          prop="summary"
-          min-width="160"
-          label="摘要"
-        />
-        <el-table-column label="借方">
-          <el-table-column align="right" prop="borrowAmount" width="80" label="数量" />
-          <el-table-column align="right" prop="borrowPrice" width="80" label="单价" />
-          <el-table-column align="right" prop="borrowSum" width="120" label="金额" />
-        </el-table-column>
-        <el-table-column label="贷方">
-          <el-table-column align="right" prop="loanAmount" width="80" label="数量" />
-          <el-table-column align="right" prop="loanPrice" width="80" label="单价" />
-          <el-table-column align="right" prop="loanSum" width="120" label="金额" />
-        </el-table-column>
-        <el-table-column
-          prop="overage"
-          width="120"
-          label="余额"
-          align="right"
-        />
-      </el-table>
-      <div class="clearfix">
-        <el-pagination
-          :page-sizes="[10,20,30, 50]"
-          :current-page="queryParams.pageNo"
-          :page-size="queryParams.pageSize"
-          :total="queryParams.total"
-          style="float:right;margin:8px 0px"
-          size="small"
-          background
-          layout="total, sizes, prev, pager, next, jumper"
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-        />
-      </div>
+    <el-table :data="list" border style="width: 100%" class="account-book">
+      <el-table-column
+        prop="date"
+        width="100"
+        label="日期"
+      />
+      <el-table-column
+        prop="account"
+        width="60"
+        label="记账凭证"
+      />
+      <el-table-column
+        prop="name"
+        min-width="160"
+        label="药品名称"
+      />
+      <el-table-column
+        prop="specification"
+        width="120"
+        label="规格"
+      />
+      <el-table-column
+        prop="unit"
+        width="60"
+        label="计数单位"
+      />
+      <el-table-column
+        prop="summary"
+        min-width="160"
+        label="摘要"
+      />
+      <el-table-column label="借方">
+        <el-table-column align="right" prop="borrowAmount" width="80" label="数量" />
+        <el-table-column align="right" prop="borrowPrice" width="80" label="单价" />
+        <el-table-column align="right" prop="borrowSum" width="120" label="金额" />
+      </el-table-column>
+      <el-table-column label="贷方">
+        <el-table-column align="right" prop="loanAmount" width="80" label="数量" />
+        <el-table-column align="right" prop="loanPrice" width="80" label="单价" />
+        <el-table-column align="right" prop="loanSum" width="120" label="金额" />
+      </el-table-column>
+      <el-table-column
+        prop="overage"
+        width="120"
+        label="余额"
+        align="right"
+      />
+    </el-table>
+    <div class="clearfix">
+      <el-pagination
+        :page-sizes="[10,20,30, 50]"
+        :current-page="queryParams.pageNo"
+        :page-size="queryParams.pageSize"
+        :total="queryParams.total"
+        style="float:right;margin:8px 0px"
+        size="small"
+        background
+        layout="total, sizes, prev, pager, next, jumper"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
     </div>
   </div>
 </template>

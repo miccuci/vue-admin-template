@@ -1,104 +1,88 @@
 // cover some element-ui styles
-
-.el-breadcrumb__inner,
-.el-breadcrumb__inner a {
-  font-weight: 400 !important;
+.el-button--text{
+  font-size: 12px;
+  padding: 0px !important;
+}
+.el-button--default{
+  border-color: #0077ff;
+  color: #0077ff;
 }
 
-.el-upload {
-  input[type="file"] {
-    display: none !important;
-  }
-}
-
-.el-upload__input {
-  display: none;
-}
-
-
+// 弹出层
 // to fixed https://github.com/ElemeFE/element/issues/2461
 .el-dialog {
   transform: none;
   left: 0;
   position: relative;
   margin: 0 auto;
+  margin-top: 60px;
 }
-
-// refine element ui upload
-.upload-container {
-  .el-upload {
-    width: 100%;
-
-    .el-upload-dragger {
-      width: 100%;
-      height: 200px;
-    }
-  }
-}
-
-// dropdown
-.el-dropdown-menu {
-  a {
-    display: block
-  }
-}
-
-
-
-// select
-.el-select-dropdown__item.selected {
-  background: rgba(255, 255, 255, 0.9);
-}
-.el-select-dropdown__item {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.65);
-  height: 32px;
-  line-height: 32px;
-}
-.el-select .el-input__inner {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-// table
-.el-table th {
-  background: rgb(164, 171, 187);
-  color: rgb(255, 255, 255);
-}
-.el-table td {
-  padding: 6px 0 !important;
-}
-.el-table__row.el-table__row--striped {
-  background: #f3f3f3;
-}
-.el-table .cell{
-  text-align: center;
-}
-
-// card
-
-.el-card.is-always-shadow {
-  box-shadow: none;
-  border: none;
-}
-.el-card__body {
-  padding: 16px;
-}
-.el-card__header {
-
-  position: relative;
-  border-bottom: none 0;
-}
-.el-card {
-  font-family: PingFangSC-Medium;
-  font-size: 16px;
-  color: #4a4a4a;
-  letter-spacing: 0;
-}
-// 弹出层
 .el-dialog__header {
   background: rgba(90, 123, 239, 0.12);
 }
 .el-dialog__headerbtn {
   font-size: 18px;
+}
+.el-dialog__body{
+  padding: 20px;
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.el-dialog__footer{
+  text-align: center;
+}
+
+// table
+.el-table th {
+  background: #f2f2f2;
+  font-weight: 600;
+  color: #1d1d1d;
+}
+.el-table .cell,.el-table th > .cell{
+  padding: 0 6px;
+}
+.el-table th,.el-table td{
+  padding: 6px 0;
+}
+
+.el-select,.el-date-editor{
+  width: 100% !important;
+}
+.el-input-number .el-input__inner{
+  text-align: left;
+}
+
+.el-row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.el-popper[x-placement^=botton]{
+  margin-top: 2px;
+}
+
+
+
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  color: #0077ff;
+  font-weight: 400 !important;
+}
+
+.el-message{
+  text-align: center;
+  justify-content: center;
+}
+
+.el-image-viewer__mask{
+  opacity: 0.8;
+}
+.el-image-viewer__close{
+  color: #fafafa;
+}
+
+.el-menu-item span, .el-submenu__title span{
+  margin-left: 16px;
 }
